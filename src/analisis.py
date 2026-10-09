@@ -1,4 +1,9 @@
 import pandas as pd
+import pathlib as Path
+
+#Ubicaciones
+def ubicacion():
+    return Path(__file__).resolve()
 
 #Analisis (describe)
 def analisis_basico(df:pd.Dataframe):
