@@ -3,7 +3,13 @@ import pathlib as Path
 
 #Ubicaciones
 def ubicacion():
-    return Path(__file__).resolve()
+    return Path(__file__).resolve().parent.parent
+
+def leer_excel(nombre_archivo,hoja=0):
+    base_dir=ubicacion()
+    archivo= (base_dir/"data"/"raw"/nombre_archivo)
+    df=pd.read_excel(archivo,sheet_name=hoja)
+    return df
 
 #Analisis (describe)
 def analisis_basico(df:pd.Dataframe):
@@ -36,7 +42,7 @@ def filtrar_categoria (df:df.Dataframe,tipo:string):
 
 
 if __name__=="__main__":
-    df1=pd.read_excel("data/raw/gastos.xlsx")
+    df1=leer_excel("gastos.xlsx")
     print (filtrar_categoria(df1,"entretenimiento"))
 
 
