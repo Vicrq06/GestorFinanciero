@@ -6,3 +6,4 @@ if __name__=="__main__":
     ingreso=int(input("Digite su ingreso"))
     gasto= analisis.calc_gast_mens(df)
     print ("El sobrante es de: ", ingreso-gasto)
+    
