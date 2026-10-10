@@ -5,6 +5,8 @@ from pathlib import Path
 def ubicacion():
     return Path(__file__).resolve().parent.parent
 
+
+#lectura de archivo
 def leer_excel(nombre_archivo,hoja=0):
     base_dir=ubicacion()
     archivo= (base_dir/"data"/"raw"/nombre_archivo)
@@ -31,14 +33,18 @@ def data_types(df:df.Dataframe):
 
 
 #Filtrar por orden
-def filtrar(df:df.Dataframe,orden=False):
+def filtrar(df:pd.Dataframe,orden=False):
     df_filtrado=df.sort_values(by="valor",ascending=orden)
     return df_filtrado
 
 #Filtro por categoria 
-def filtrar_categoria (df:df.Dataframe,tipo:string):
+def filtrar_categoria (df:pd.Dataframe,tipo:string):
     df_filtrado=df[df["categoria"]==tipo]
     return df_filtrado
+
+#Graficar
+def graficar (df:pd.Dataframe):
+    pass
 
 
 if __name__=="__main__":
